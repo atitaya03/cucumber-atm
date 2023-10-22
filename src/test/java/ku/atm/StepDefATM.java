@@ -1,3 +1,5 @@
+// 6410406924 Atitaya Promlers
+
 package ku.atm;
 
 import io.cucumber.java.Before;
@@ -53,6 +55,10 @@ public class StepDefATM {
     public void i_withdraw_from_atm_more_than_balance(double amount) throws NotEnoughBalanceException {
         assertThrows(NotEnoughBalanceException.class,
                 () -> atm.withdraw(amount));
+    }
+    @When("I deposit {float} to ATM")
+    public void i_deposit_to_atm(double amount) {
+        atm.deposit(amount);
     }
     @Then("my account balance is {float}")
     public void my_account_balance_is(double balance) {
